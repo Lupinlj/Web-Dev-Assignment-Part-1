@@ -105,9 +105,14 @@
 
 
 ## Change Log
-September 20, 2025
 
-Made the header and navigation menu look the same on all pages
-Changed temporary colors to neutral ones in the CSS file
-Waiting for feedback on the basic structure before making more changes
+September 2025
+
+- Made the header and navigation menu look the same on all pages
+- Changed temporary colors to neutral ones in the CSS file
+- Modified services.html doc.
+- Services.html now contains imagies
+- Added imagies to index.html doc
+- 
+
 
