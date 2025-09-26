@@ -96,23 +96,48 @@
 - Total: R9,000 - R12,000
 
 ## 9. References
+
+### Reference for part 1
 - Design, N.P. (2021). What is the Cost of Creating a Website in South Africa? | How much does of a website design in South Africa. [online] New Perspective Design | Graphic & Web Design East London. Available at: https://www.newperspectivestudio.co.za/wp/what-is-the-cost-of-creating-a-website-in-south-africa/.
+
 - Emily (2023). SWOT Analysis for a Bakery (Example) - SharpSheets. [online] SharpSheets. Available at: https://sharpsheets.io/blog/swot-analysis-bakery/.
+
 - Anon, (n.d.). Charly’s Bakery | Mucking Afazing Cakes. [online] Available at: https://charlysbakery.co.za/.
+
 - W3schools (2019). How To Create a Contact Form with CSS. [online] W3schools.com. Available at: https://www.w3schools.com/howto/howto_css_contact_form.asp.
+
 - Unsplash (n.d.). 750+ Bakery Pictures [HD] | Download Free Images on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/s/photos/bakery.
 
 
 
+### Reference for part 2
+
+- Pexels (2025). Free Stock Photos. [online] Pexels.com. Available at: https://www.pexels.com/.
+
+- Freepik (2025). Freepik - free graphic resources for everyone. [online] Freepik. Available at: https://www.freepik.com/.
+
+- www.programiz.com. (n.d.). Learn CSS - CSS Tutorials for Beginners. [online] Available at: https://www.programiz.com/css.‌
+
+- MDN WEB DOCS (2019). CSS: Cascading Style Sheets. [online] MDN Web Docs. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS.
+
+- 
+
+‌
+
 ## Change Log
 
-September 2025
+### September 2025
 
 - Made the header and navigation menu look the same on all pages
 - Changed temporary colors to neutral ones in the CSS file
+- Added Reset 
+- Added psuedo classes
+- Added Media Queries
+- Fixed style.css not linking properly
+- Fixed image not linking 
+- Added relative units
 - Modified services.html doc.
 - Services.html now contains imagies
-- Added imagies to index.html doc
-- 
-
+- Added images to index.html doc
+- Added a folder called Gallary to hold photos for the services doc
 

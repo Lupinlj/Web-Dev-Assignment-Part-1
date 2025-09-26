@@ -1,0 +1,836 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+ 
+/* Global Styles */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.03125rem;
+  color: #333;
+  display: grid;
+  grid-template-areas: "header" "hero" "main" "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  background-color: beige;
+  justify-content: center;
+}
+ 
+body.about-page {
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  grid-area: header;
+  background-color: burlywood;
+  padding: 1rem 0;
+}
+
+.hero {
+  grid-area: hero;
+}
+
+main {
+  grid-area: main;
+  background-color: beige;
+  padding: 2rem 0;
+}
+
+footer {
+  grid-area: footer;
+  font-weight: bold;
+  background-color: burlywood;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-content{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.footer-section h3 {
+  background-color: transparent;
+  color: darkred;
+  padding: 0 0 0.5rem 0;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0;
+}
+
+.footer-section p {
+  background-color: transparent;
+  padding: 0.25rem 0;
+  margin: 0;
+  color: #333;
+  text-align: left;
+}
+
+.copyright {
+  border-top: 2px solid darkred;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.copyright p {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* --- Typography --- */
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  background-color: burlywood;
+  padding: 0.9375rem;
+  color: darkred;
+  margin: 1.875rem 0;
+}
+
+h2 {
+  color: darkred;
+  font-size: 1.75rem;
+  text-align: center;
+  background-color: burlywood;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: beige;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: darkred;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #333;
+  line-height: 1.6;
+  background-color: burlywood;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  font-weight: normal;
+  text-align: justify;
+}
+
+h1.solid {
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  background-color: burlywood;
+  color: darkred;
+  font-size: 2rem;
+  text-align: left;
+  margin: 1.875rem 0;
+}
+
+
+ul {
+  background-color: burlywood;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+li {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+/* About Page Specific Styles */
+
+.welcome-section {
+  max-width: 56.25rem;
+  margin: 2rem auto;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.welcome-section h2 {
+  color: darkred;
+  font-size: 1.75rem;
+  text-align: center;
+  background-color: burlywood;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.welcome-section h3 {
+  color: beige;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: darkred;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.mission {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: center;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+.vision {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: center;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+
+/* Services-page */
+
+.gallary{
+  padding: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #333;
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+  grid-auto-rows: 180px;
+  grid-auto-flow: dense;
+}
+
+.gallary-item{
+  position: relative;
+  overflow: hidden;
+  background-color: #222;
+}
+
+.v-stretch{
+  grid-row: span 2;
+}
+
+.h-stretch{
+  grid-row: span 2;
+}
+
+.gallary-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallary div img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+   
+}
+
+.gallary-caption{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(139, 0, 0, 0.9);  /* darkred with transparency */
+  color: beige;
+  padding: 0.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+body .services-page{
+  grid-template-columns: "header" "main" "footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+/*-- Navigation styles --*/
+
+nav {
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.content-section {
+  padding: 1.25rem; 
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav ul li {
+  font-weight: bold;
+}
+
+
+nav a {
+  color: darkred;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: darkred;
+  background-color: beige;
+  transform: scale(1.05);
+}
+
+.image-grid {
+  box-sizing: border-box;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.grid-item{
+  border: 1px solid black;
+  
+}
+
+/*-- Responsive image containers --*/
+
+img{
+  display:block;
+  max-inline-size: 100%;
+}
+
+/* Product section layout */
+.product-section{
+  display: grid;
+  gap: 2%;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-bottom: 3rem;
+}
+
+.product-section h2{
+  color: darkred;
+  font-size: 1.75rem;
+  text-align: center;
+  background-color: burlywood;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+  grid-column: 1 / -1;
+}
+
+.grid-item{
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+
+.grid-item img{
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.grid-items-caption{
+  border: burlywood;
+  background-color: darkred; 
+  color: beige;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 0;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.main-container {
+  display: grid;
+  max-width: 56.25rem;
+  grid-column: auto;
+}
+
+/*-- Pseudo classes --*/
+a:link {
+  color: beige;
+}
+
+a:hover {
+  color: darkred;
+  font-size: 1.1em;
+}
+
+a:active {
+  color: darkblue;
+  font-size: 1.1em;
+}
+
+/*-- Media Queries --*/
+
+/* Large Desktops */
+@media (min-width: 87.5rem) {
+  .container {
+    max-width: 87.5rem;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .image-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-item{
+    height: 15rem;
+    width: 100%;
+    margin: 0%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .gallary{
+    grid-template-columns: repeat(5, fr);
+    grid-auto-rows: 160px;
+    max-height: 75vh;
+  }
+}
+
+/* Tablets */
+@media (max-width: 64rem) {
+  .container {
+    padding: 0 0.9375rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 1.25rem 0;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+  
+  nav {
+    justify-content: center;
+  }
+  
+  nav ul {
+    gap: 0.625rem;
+  }
+  
+  .content-section {
+    padding: 0.9375rem;
+  }
+  
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9375rem;
+  }
+  .product-section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .product-section h2{
+    grid-column: 1/ -1;
+  }
+  
+  .grid-item img{
+    height: 14rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .grid-items-caption{
+    font-size: 1rem;
+    padding: 0.75rem;
+    background-color: #8B0000;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    text-align: center;
+  }
+
+  .footer-section p {
+    text-align: center;
+  }
+}
+
+/* Large phones and small tablets */
+@media (max-width: 48rem) {
+  body {
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    padding: 0 0.625rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    padding: 0.625rem;
+    margin: 0.9375rem 0;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  p {
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .content-section {
+    padding: 0.625rem;
+  }
+  
+  .image-grid {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
+  }
+
+  .product-section{
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .grid-item {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .grid-item img{
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .grid-items-caption {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .cta-section {
+    margin-top: 2rem;
+    padding: 1rem 0;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    margin: 0.25rem 0;
+    width: 200px;
+  }
+
+  main {
+    padding: 1rem 0;
+  }
+
+  .welcome-section {
+    margin: 1rem auto;
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 375px) {
+  .product-section {
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .grid-item img {
+    height: 10rem;
+  }
+  
+  .grid-items-caption {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+  
+  .cta-section {
+    margin-top: 1.5rem;
+    padding: 0.75rem 0;
+  }
+  
+  .btn {
+    width: 180px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Services page specific styles */
+.services-page main {
+  max-width: 56.25rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.services-page h1 {
+  color: darkred;
+  font-size: 2rem;
+  text-align: center;
+  background-color: burlywood;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.services-page h2 {
+  color: darkred;
+  font-size: 1.5rem;
+  text-align: left;
+  background-color: burlywood;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.services-page h3 {
+  color: beige;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: darkred;
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.services-page ul {
+  background-color: burlywood;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.services-page li {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: beige;
+  border-radius: 0.25rem;
+}
+
+/* Gallery styles for services page */
+.gallary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.gallary img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.gallary-captions {
+  background-color: darkred;
+  color: beige;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.gallary-captions h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.gallary-captions p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.gallary-captions h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.gallary-captions p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.v-stretch img {
+  height: 300px;
+}
+
+.h-stretch img {
+  height: 150px;
+}
+
+/* Call to Action section */
+.cta-section {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  color: darkred;
+  font-size: 1.75rem;
+  text-align: center;
+  background-color: burlywood;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/*button styling */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: darkred;
+  color: beige;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  margin: 1rem 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #8B0000;
+  transform: translateY(-2px);
+}
+
+.btn.secondary {
+  background-color: burlywood;
+  color: darkred;
+}
+
+.btn.secondary:hover {
+  background-color: #DEB887;
+}
