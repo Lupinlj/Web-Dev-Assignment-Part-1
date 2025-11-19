@@ -6,6 +6,9 @@
     <title>Joe Bakes - Home</title>
     <link rel="stylesheet" href="/style.css/reset.css">
     <link rel="stylesheet" href="/style.css/style.css">
+
+    
+
 </head>
 <body class="home-page">
     <!-- Header with navigation -->
@@ -29,8 +32,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2 class="solid">Homemade Baked Goods Made With Love</h2>
+            <h2 class="solid accordion">Homemade Baked Goods Made With Love</h2>
+            <div class = "panel">
             <p class="solid">Traditional recipes passed down through generations</p>
+            </div>
             <a href="services.html" class="btn">View Our Treats</a>
         </div>
     </section>
@@ -39,7 +44,12 @@
     <main class="container">
         <!-- Welcome Section -->
         <section class="welcome-section">
-            <h2>From Home Kitchen to Your Heart</h2>
+
+
+           
+
+            <h2 class = "accordion">From Home Kitchen to Your Heart</h2>
+            <div class = "panel">
             <p class="solid">
                 What started as weekend baking with his grandmother has blossomed into something beautiful. 
                 Joe Bakkersfield found his grandmother's recipe book after her passing and promised to turn 
@@ -53,37 +63,47 @@
                 <li>Affordable treats that put a smile on your face</li>
                 <li>Made fresh from our home kitchen in Cape Town</li>
             </ul>
+            </div>
         </section>
 
         <!-- Products Grid Section -->
         <section class="product-section">
             <h2>Our Signature Specialties</h2>
             <div class="grid-item">
-                <img src="/images/brownies.jpg" alt="Delicious Brownies">
+                    
+                <img src="/images/brownies.webp" alt="Delicious Brownies">
                 <div class="grid-items-caption">
                     <h3>Fresh Brownies</h3>
+              
                 </div>
             </div>
             <div class="grid-item">
-                <img src="/images/cookies with faces.jpg" alt="Custom Cookies">
+                    
+                <img src="/images/cookies with faces.webp" alt="Custom Cookies">
                 <div class="grid-items-caption">
                     <h3>Custom Cookies</h3>
+               
                 </div>
             </div>
             <div class="grid-item">
-                <img src="/images/bdayCake.jpg" alt="Birthday Cake">
+                 
+                <img src="/images/bdayCake.webp" alt="Birthday Cake">
                 <div class="grid-items-caption">
                     <h3>Birthday Cake</h3>
+       
                 </div>
             </div>
             <div class="grid-item">
-                <img src="/images/wedding cake.jpg" alt="Wedding Cake">
+                   
+                <img src="/images/wedding cake.webp" alt="Wedding Cake">
                 <div class="grid-items-caption">
                     <h3>Wedding Cake</h3>
-                </div>
+                    </div>
+            
             </div>
             <div class="grid-item">
-                <img src="/images/BTP.png" alt="Baked to Perfection">
+                
+                <img src="/images/BTP.webp" alt="Baked to Perfection">
                 <div class="grid-items-caption">
                     <h3>Baked to Perfection</h3>
                 </div>
@@ -92,13 +112,20 @@
 
         <!-- Call to Action -->
         <section class="cta-section">
-            <h2>Ready to Taste the Difference?</h2>
+            <h2 class = "accordion">Ready to Taste the Difference?</h2>
+            <div class = "panel">
             <p class="solid">Place your order today and experience homemade goodness</p>
+            </div>
             <div class="cta-buttons">
                 <a href="enquiry.html" class="btn">Place an Order</a>
                 <a href="contact.html" class="btn secondary">Contact Us</a>
             </div>
         </section>
+
+        <!--Load More Button-->
+        <div class ="load-more">
+            <button class = "btn" id = "loadMoreBtn">Load More Products</button>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -120,5 +147,7 @@
             </div>
         </div>
     </footer>
+<script src="js/scripts.js"></script>
+
 </body>
 </html>

@@ -120,7 +120,7 @@
 
 - MDN WEB DOCS (2019). CSS: Cascading Style Sheets. [online] MDN Web Docs. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS.
 
-- 
+
 
 ‌
 
@@ -136,8 +136,38 @@
 - Fixed style.css not linking properly
 - Fixed image not linking 
 - Added relative units
-- Modified services.html doc.
+- Modified services.html doc
 - Services.html now contains imagies
 - Added images to index.html doc
 - Added a folder called Gallary to hold photos for the services doc
+- Added markdown for screenshots
 
+
+### November 2025
+- Added Accordion Styles
+- Added maps
+- Added Lightbox to html, css, and javascript
+
+
+
+## Screenshots of different screen sizes. 
+
+### Desktop
+
+![alt text](<../markdown.md/Screenshot (1) h.png>)
+
+![alt text](<../markdown.md/Screenshot (2) h.png>)
+
+![alt text](<../markdown.md/Screenshot (3) h.png>)
+
+
+
+### Phone
+
+![alt text](<../markdown.md/Screenshot (10).png>)
+
+![alt text](<../markdown.md/Screenshot (12).png>)
+
+![alt text](<../markdown.md/Screenshot (13).png>)
+
+![alt text](<../markdown.md/Screenshot (14).png>)

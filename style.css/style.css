@@ -154,7 +154,6 @@ h1.solid {
   margin: 1.875rem 0;
 }
 
-
 ul {
   background-color: burlywood;
   padding: 1rem;
@@ -228,6 +227,83 @@ li {
 }
 
 
+/* Accordion Styles */
+
+.accordion{
+  background-color: burlywood;
+  color: darkred;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-size: 1.75rem;
+  margin-bottom: 0;
+}
+
+.accordion:hover{
+  background-color: burlywood;
+}
+
+.accordion:active{
+  background-color: darkred;
+  color: beige;
+}
+
+.panel{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: transparent;
+}
+
+.panel.show{
+  max-height: 62.5rem;
+  transition: max-height 0.5s ease-in;
+}
+
+.search-wrapper{
+  margin: 2 rem 0;
+  padding: 1rem;
+  background-color: burlywood;
+  border-radius: 0.5rem;
+  text-align: center;  
+}
+
+.search-wrapper label{
+  background-color: darkred;
+  color: beige;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.search{
+
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 0.19rem;
+  border-radius: 0,5rem;
+  background-color: burlywood;
+  color: beige;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.3s ease;
+}
+
+#search:focus{
+  outline: none;
+  border-color: darkred;
+}
+
+
+
+
+
+
+
 /* Services-page */
 
 .gallary{
@@ -246,6 +322,7 @@ li {
   position: relative;
   overflow: hidden;
   background-color: #222;
+  display: block;
 }
 
 .v-stretch{
@@ -275,16 +352,22 @@ li {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(139, 0, 0, 0.9);  /* darkred with transparency */
+  background-color: darkred;  
   color: beige;
   padding: 0.5rem;
-  transform: translateY(100%);
   transition: transform 0.3s ease;
 }
 
 body .services-page{
   grid-template-columns: "header" "main" "footer";
   grid-template-rows: auto 1fr auto;
+}
+
+
+/* Contact Page */
+
+.informations{
+  justify-content: center;
 }
 
 /*-- Navigation styles --*/
@@ -315,9 +398,8 @@ nav ul li {
   font-weight: bold;
 }
 
-
 nav a {
-  color: darkred;
+  background-color: burlywood;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -344,6 +426,8 @@ nav a:hover {
   
 }
 
+#map { height: 180px; }
+
 /*-- Responsive image containers --*/
 
 img{
@@ -356,7 +440,6 @@ img{
   display: grid;
   gap: 2%;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  margin-bottom: 3rem;
 }
 
 .product-section h2{
@@ -368,7 +451,6 @@ img{
   padding: 1rem;
   border-radius: 0.75rem;
   margin-bottom: 2rem;
-  grid-column: 1 / -1;
 }
 
 .grid-item{
@@ -382,6 +464,11 @@ img{
   padding-bottom: 1rem;
 }
 
+.our{
+  float: none;
+  display: block;
+  
+}
 
 .grid-item img{
   width: 100%;
@@ -408,6 +495,31 @@ img{
   text-align: center;
 }
 
+
+
+#lightbox{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: none;
+}
+
+#lightbox.active{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img{
+  max-width: 90%;
+  max-width: 90vh;
+  object-fit: contain;
+}
+
+
 .main-container {
   display: grid;
   max-width: 56.25rem;
@@ -431,7 +543,7 @@ a:active {
 
 /*-- Media Queries --*/
 
-/* Large Desktops */
+/* Desktops */
 @media (min-width: 87.5rem) {
   .container {
     max-width: 87.5rem;
@@ -501,24 +613,18 @@ a:active {
   }
   .product-section{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(15ren, 1fr));
+    gap: 2%;
   }
 
   .product-section h2{
     grid-column: 1/ -1;
   }
-  
   .grid-item img{
-    height: 14rem;
-    width: 100%;
-    object-fit: cover;
+    height: 12rem;
   }
-  
   .grid-items-caption{
-    font-size: 1rem;
-    padding: 0.75rem;
+    grid-column: auto;
     background-color: #8B0000;
   }
 
@@ -536,7 +642,7 @@ a:active {
   }
 }
 
-/* Large phones and small tablets */
+/* Phone */
 @media (max-width: 48rem) {
   body {
     font-size: 0.9rem;
@@ -582,40 +688,11 @@ a:active {
 
   .product-section{
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .grid-item {
-    max-width: 100%;
-    margin: 0 auto;
+    gap: 1.5%;
   }
 
   .grid-item img{
-    height: 12rem;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .grid-items-caption {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
-
-  .cta-section {
-    margin-top: 2rem;
-    padding: 1rem 0;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .btn {
-    margin: 0.25rem 0;
-    width: 200px;
+    height: 11rem;
   }
 
   main {
@@ -627,88 +704,6 @@ a:active {
   }
 }
 
-/* Extra small mobile screens */
-@media (max-width: 375px) {
-  .product-section {
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .grid-item img {
-    height: 10rem;
-  }
-  
-  .grid-items-caption {
-    font-size: 0.8rem;
-    padding: 0.4rem;
-  }
-  
-  .cta-section {
-    margin-top: 1.5rem;
-    padding: 0.75rem 0;
-  }
-  
-  .btn {
-    width: 180px;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Services page specific styles */
-.services-page main {
-  max-width: 56.25rem;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.services-page h1 {
-  color: darkred;
-  font-size: 2rem;
-  text-align: center;
-  background-color: burlywood;
-  font-weight: bold;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.services-page h2 {
-  color: darkred;
-  font-size: 1.5rem;
-  text-align: left;
-  background-color: burlywood;
-  font-weight: bold;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  margin: 1.5rem 0 1rem 0;
-}
-
-.services-page h3 {
-  color: beige;
-  font-size: 1.25rem;
-  font-weight: bold;
-  background-color: darkred;
-  text-align: center;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.services-page ul {
-  background-color: burlywood;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.services-page li {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background-color: beige;
-  border-radius: 0.25rem;
-}
-
 /* Gallery styles for services page */
 .gallary {
   display: grid;
@@ -716,7 +711,7 @@ a:active {
   gap: 1rem;
   padding: 2rem 0;
   max-width: 1200px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto;
 }
 
 .gallery-item {
@@ -727,7 +722,6 @@ a:active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .gallary img {
@@ -752,61 +746,12 @@ a:active {
   text-align: center;
 }
 
-.gallary-captions h3 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.1rem;
-}
-
-.gallary-captions p {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: normal;
-  opacity: 0.9;
-}
-
-.gallary-captions h3 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.1rem;
-}
-
-.gallary-captions p {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: normal;
-  opacity: 0.9;
-}
-
 .v-stretch img {
   height: 300px;
 }
 
 .h-stretch img {
   height: 150px;
-}
-
-/* Call to Action section */
-.cta-section {
-  margin-top: 3rem;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.cta-section h2 {
-  color: darkred;
-  font-size: 1.75rem;
-  text-align: center;
-  background-color: burlywood;
-  font-weight: bold;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /*button styling */

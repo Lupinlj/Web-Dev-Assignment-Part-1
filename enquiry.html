@@ -22,9 +22,10 @@
             
     <main>
         <div class="container">
-            <h1>Product/Service Enquiry Form</h1>
+            <h1 class = "accordion">Product/Service Enquiry Form</h1>
+            <div class = "panel">
             <p>Please fill out the form below for any product or service enquiries.</p>
-            <form action="action_page.php">
+            <form action="process-enquiry.html" method="POST">
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
 
@@ -36,9 +37,10 @@
 
                 <label for="enquiryType">Enquiry Type</label>
                 <select id="enquiryType" name="enquiryType">
-                    <option value="general">General Enquiry</option>
-                    <option value="product">Product Enquiry</option>
-                    <option value="service">Service Enquiry</option>
+                    <option value="custom-cake">Custom Cake Order</option>
+                    <option value="product">Product Information</option>
+                    <option value="delivery-service">Delivery Service</option>
+                    <option value="pricing">Pricing</option>
                 </select>
 
                 <label for="subject">Message</label>
@@ -46,6 +48,7 @@
 
                 <input type="submit" value="Submit">
             </form>
+            </div>
         </div>
     </main>
     
@@ -67,5 +70,9 @@
             </div>
         </div>
     </footer>
+
+
+   <script src="js/scripts.js"></script>
+
 </body>
 </html>
