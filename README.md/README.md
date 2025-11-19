@@ -121,8 +121,18 @@
 - MDN WEB DOCS (2019). CSS: Cascading Style Sheets. [online] MDN Web Docs. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS.
 
 
+### Reference for part 3
 
-‌
+-W3Schools (n.d.). How To Create an Accordion. [online] www.w3schools.com. Available at: https://www.w3schools.com/howto/howto_js_accordion.asp.
+
+-leafletjs.com. (n.d.). Quick Start Guide - Leaflet - a JavaScript library for interactive maps. [online] Available at: https://leafletjs.com/examples/quick-start/.
+
+‌-Youtu.be. (2025). Available at: https://youtu.be/NyjMmNCtKf4?si=ldF2V3UQ8Eqjo9Gm [Accessed 19 Nov. 2025].
+
+‌-UIkit. (2025). UIkit. [online] Available at: https://getuikit.com/docs/lightbox [Accessed 19 Nov. 2025].
+
+‌-Xml-sitemaps.com. (2025). joebakes.netlify.app Sitemap Details - XML Sitemaps Generator. [online] Available at: https://www.xml-sitemaps.com/details-joebakes.netlify.app-8e77b2a8e.html [Accessed 19 Nov. 2025].
+
 
 ## Change Log
 
@@ -147,6 +157,16 @@
 - Added Accordion Styles
 - Added maps
 - Added Lightbox to html, css, and javascript
+- Added LoadMore function
+- Added Search bar
+- Made changes to HTML pages
+- Added robots.txt and sitemap.xml
+- Added php file to the structure. Both for enquiry.html and contact.html
+- Added SEO Meta tags
+- Made changes to images text, and alts.
+- Modified enquiry.html and contact.html
+- Added image loading
+- Fix screenshots not loading on README.md
 
 
 
@@ -154,20 +174,19 @@
 
 ### Desktop
 
-![alt text](<../markdown.md/Screenshot (1) h.png>)
+![Desktop view ](../markdown.md/Screenshot%20(1)%20h.png)
 
-![alt text](<../markdown.md/Screenshot (2) h.png>)
+![Desktop view ](../markdown.md/Screenshot%20(2)%20h.png)
 
-![alt text](<../markdown.md/Screenshot (3) h.png>)
-
-
+![Desktop view ](../markdown.md/Screenshot%20(3)%20h.png)
 
 ### Phone
 
-![alt text](<../markdown.md/Screenshot (10).png>)
+![Mobile view - home page](../markdown.md/Screenshot%20(10).png)
 
-![alt text](<../markdown.md/Screenshot (12).png>)
+![Mobile view - home page](../markdown.md/Screenshot%20(12).png)
 
-![alt text](<../markdown.md/Screenshot (13).png>)
+![Mobile view - home page](../markdown.md/Screenshot%20(13).png)
 
-![alt text](<../markdown.md/Screenshot (14).png>)
+![Mobile view - home page](../markdown.md/Screenshot%20(14).png)
+

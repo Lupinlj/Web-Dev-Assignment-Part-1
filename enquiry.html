@@ -6,6 +6,14 @@
     <title>Joe Bakes - Enquiry</title>
     <link rel="stylesheet" href="/style.css/reset.css">
     <link rel="stylesheet" href="/style.css/style.css">
+
+   <!-- SEO Meta Tags-->
+    <meta name="description" content="Get in touch if you want a custom-cake or have any question you like to ask">
+
+    <meta name="keywords" content="Joe Bakes, Cape Town Bakery, Fresh out the oven cookies, homemade baked goods, custom cakes, special cakes, Birthday cakes, Wedding Cakes, freshly baked brownies">
+    <meta name="author" content="Joe Bakes">
+    <meta name="robots" content="index, follow">
+
 </head>
 <body class = "enquiry-page">
     <header>
@@ -22,21 +30,24 @@
             
     <main>
         <div class="container">
-            <h1 class = "accordion">Product/Service Enquiry Form</h1>
-            <div class = "panel">
+            <h1>Product/Service Enquiry Form</h1>
             <p>Please fill out the form below for any product or service enquiries.</p>
-            <form action="process-enquiry.html" method="POST">
+            <form id="enquiryForm" action="mail.php" method="POST">
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+                <input type="text" id="fname" name="firstname" placeholder="Your name.." required minlength="2"> 
 
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name.." required minlength="2">
 
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Your email.." required>
+                <input type="email" id="email" name="email" placeholder="Your email@example.com" required>
+
+                <label for = "phone">Phone Number</label>
+                <input type ="tel" id = "phone" name="phone" placeholder="+27 XX XXX XXXX" pattern="[0-9+\s\-()]{10,15}">
 
                 <label for="enquiryType">Enquiry Type</label>
                 <select id="enquiryType" name="enquiryType">
+                    <option value="">-- Please Select ==</option>
                     <option value="custom-cake">Custom Cake Order</option>
                     <option value="product">Product Information</option>
                     <option value="delivery-service">Delivery Service</option>
@@ -44,11 +55,19 @@
                 </select>
 
                 <label for="subject">Message</label>
-                <textarea id="subject" name="subject" placeholder="Write your message here.." style="height:200px" required></textarea>
+                <textarea id="subject" name="subject" placeholder="Write your message here.." style="height:12.5rem" required minlength="19" maxlength="500"></textarea>
 
+
+                <div id="errorMessages" style="color: red; margin: 0.625rem 0;"></div>
+
+                
                 <input type="submit" value="Submit">
+                <p class ="form-message"></p>
             </form>
-            </div>
+
+            <div id="responseContainer" style="display: none; margin-top: 1.25rem; padding: 0.938rem; background-color: beige; border-radius: 5px;">
+                    <h2>Response to Your Enquiry</h2>
+                    <div id="responseContent"></div>
         </div>
     </main>
     
@@ -71,7 +90,7 @@
         </div>
     </footer>
 
-
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script src="js/scripts.js"></script>
 
 </body>

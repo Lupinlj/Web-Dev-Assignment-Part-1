@@ -1,8 +1,6 @@
 // Get all accordion buttons
-const acc = document.getElementsByClassName('accordion')
-for (let i = 0; i < acc.length; i++){
-
-for (i = 0; i < acc.length; i++) {
+const acc = document.getElementsByClassName('accordion');
+for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
   
     this.classList.toggle("active");
@@ -15,19 +13,27 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
-}
-if (document.getElementById('map')){
-  
 
-// map
+// Page loading
+const images = document.querySelectorAll('img');
+images.forEach(img => {
+  img.loading = 'lazy';
+});
+
+// Map
+if (document.getElementById('map')){
+
 var map = L.map('map');
-map.setView([51.505, -0.09], 13);
+map.setView([-33.9249, 18.4241], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// Map
+
+var businessMarker = L.marker([-33.9249, 18.4241]).addTo(map);
+businessMarker.bindPopup("<b>Joe Bakes</b><br>Our Location").openPopup();
+
 navigator.geolocation.watchPosition(success, error);
 
 let marker, circle ;
@@ -60,174 +66,247 @@ function error(err){
   }
 }
 }
+// LightBox
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+document.body.appendChild(lightbox);
+
+const lightboxContent = document.createElement('div');
+lightboxContent.className = 'lightbox-content';
+lightbox.appendChild(lightboxContent);
 
 
-// Lightbox code
-const lightbox = document.createElement('div')
-lightbox.id = 'lightbox'
-document.body.appendChild(lightbox)
+const closeBtn = document.createElement('span');
+closeBtn.className = 'lightbox-close';
+closeBtn.innerHTML = '&times;';
+lightboxContent.appendChild(closeBtn);
 
-const images = document.querySelectorAll('img')
-images.forEach(image => {
-  image.addEventListener('click', e => {
-    lightbox.classList.add('active')
-    document.body.style.overflow = 'hidden'
+const slideCounter = document.createElement('div');
+slideCounter.className = 'slide-counter';
+lightboxContent.appendChild(slideCounter);
 
-    while (lightbox.firstChild){
-      lightbox.firstChild.remove()
-    }
+const imageContainer = document.createElement('div');
+imageContainer.className = 'image-container';
+lightboxContent.appendChild(imageContainer);
 
-    const img = document.createElement('img')
-    img.src = image.src
-    lightbox.appendChild(img)
+const prevArrow = document.createElement('a');
+prevArrow.className = 'lightbox-prev';
+prevArrow.innerHTML = '&#10094;';
+lightboxContent.appendChild(prevArrow);
+
+const nextArrow = document.createElement('a');
+nextArrow.className = 'lightbox-next';
+nextArrow.innerHTML = '&#10095;';
+lightboxContent.appendChild(nextArrow);
+
+const captionBox = document.createElement('div');
+captionBox.className = 'caption-box';
+lightboxContent.appendChild(captionBox);
+
+const thumbnailStrip = document.createElement('div');
+thumbnailStrip.className = 'thumbnail-strip';
+lightboxContent.appendChild(thumbnailStrip);
+
+const galleryImages = document.querySelectorAll('.gallary img, .image-grid img');
+let activeIndex = 0;
 
 
-  })
-})
-lightbox.addEventListener('click', e => {
-    lightbox.classList.remove('active')
-    document.body.style.overflow = '';
-  })
+galleryImages.forEach((img, index) => {
+  const thumb = document.createElement('img');
+  thumb.src = img.src;
+  thumb.alt = img.alt;
+  thumb.className = 'thumbnail-item';
+  thumb.addEventListener('click', () => displaySlide(index));
+  thumbnailStrip.appendChild(thumb);
+});
 
 
+function displaySlide(index) {
+  imageContainer.innerHTML = '';
+  
+  const mainImg = document.createElement('img');
+  mainImg.src = galleryImages[index].src;
+  mainImg.alt = galleryImages[index].alt;
+  imageContainer.appendChild(mainImg);
+  
+  slideCounter.textContent = `${index + 1} / ${galleryImages.length}`;
+  
+  captionBox.textContent = galleryImages[index].alt || 'Joe Bakes Product';
+  
+  const allThumbs = thumbnailStrip.querySelectorAll('.thumbnail-item');
+  allThumbs.forEach(t => t.classList.remove('active-thumb'));
+  allThumbs[index].classList.add('active-thumb');
+  
+  activeIndex = index;
+}
+galleryImages.forEach((image, index) => {
+  image.addEventListener('click', () => {
+    lightbox.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    displaySlide(index);
+  });
+});
 
+function closeLightbox() {
+  lightbox.style.display = 'none';
+  document.body.style.overflow = '';
+}
 
+closeBtn.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+prevArrow.addEventListener('click', () => {
+  activeIndex = (activeIndex - 1 + galleryImages.length) % galleryImages.length;
+  displaySlide(activeIndex);
+});
+
+nextArrow.addEventListener('click', () => {
+  activeIndex = (activeIndex + 1) % galleryImages.length;
+  displaySlide(activeIndex);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (lightbox.style.display !== 'block') return;
+  
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') prevArrow.click();
+  if (e.key === 'ArrowRight') nextArrow.click();
+});
 
 // Load more products
-
-
-
   document.addEventListener('DOMContentLoaded', function () {
   const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const loadMoreClass = document.getElementById('load-more');
-  let currentIndex = 0;
-  function loadContent(){
-    fetch('data.json')
-    .then((Response) => Response.json())
-    .then((data) => {
-      const content = data.content
-      const keys = Object.keys(content).slice(
-        currentIndex,
-        currentIndex + 5.
-      );
-      keys.forEach((key) => {
-        const div = document.createElement('div');
-        div.textContent = content[key];
-        loadMoreClass.appendChild(div);
-      });
 
-      currentIndex += 5;
-      if (currentIndex >= Object.keys(content).length){
+  if (loadMoreBtn) {
+    let clickCount = 0;
+  
+    loadMoreBtn.addEventListener('click', function() {
+      clickCount++;
+
+      if (clickCount === 1) {
+        alert('All products are already loaded');
+      }else if (clickCount === 2) {
+        alert('We ran out of freshly baked goods');
         loadMoreBtn.style.display = 'none';
       }
-    })
-    .catch((error) => console.error('Error:', error));
+    });
   }
-  loadContent()
-  loadMoreBtn.addEventListener('click', loadContent)
-
-
-  });
+});
+// Show images when they load  
+const allImages = document.querySelectorAll('img');
+allImages.forEach(img => {
+  if (img.complete) {
+    img.classList.add('loaded');
+  } else {
+    img.addEventListener('load', function() {
+      this.classList.add('loaded');
+    });
+    img.addEventListener('error', function() {
+      console.error('Failed to load image:', this.src);
+    });
+  }
+});
 
 // Search
   function setupSearch(){
     const searchInput = document.getElementById('search');
     const galleryItems = document.querySelectorAll('.gallery-item');
 
-
     if(!searchInput) return;
 
     searchInput.addEventListener('input',function() {
-      const searchText = this.value.toLowerCase();
+      const searchText = this.value.toLowerCase().trim();
       
       galleryItems.forEach(item => {
         const heading = item.querySelector('h3');
+        const description = item.querySelector('p');
 
         if (heading){
+          
           const productName = heading.textContent.toLowerCase();
+
+          const productDescription = description ? description.textContent.toLowerCase() : '';
+          const matches = productName.includes(searchText) || productDescription.includes(searchText);
+
           item.style.display = productName.includes(searchText) ? 'block' : 'none';
         }
       });
     });
+    
   }
+  setupSearch()
 
+// Image Loading
+function loadImages() {
+  const images = document.querySelectorAll('img');
 
-  document.addEventListener('DOMContentLoaded',function(){
-    setupSearch();
+  images.forEach(img => {
+    if (img.complete){
+      img.classList.add('loaded');
+    }else {
+      img.addEventListener('load', function() {
+        this.classList.add('loaded');
+      });
+      img.addEventListener('error', function() {
+        console.log('Failed to load image: ', this.src);
   });
-
-  // Enquiry form
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form');
-
-  if (!form) return;
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let messages = [];
-
-    const firstName = document.getElementById('fname').value
-    const lastName = document.getElementById('lname').value
-    const email = document.getElementById('email').value
-    const enquriyType = document.getElementById('enquiryType').value
-    const subject = document.getElementById('subject').value
-
-  if (firstName === '' || firstName == null) {
-    messages.push('First name is required');
-  }
-
-  if (lastName === '' || lastName == null){
-    messages.push('Last name is required');
-  }
-
-  if (email === '' || email == null){
-    messages.push('Email is required');
-  }
-
-  if (subject === ''|| subject == null){
-    messages.push('Message is required');
-  }
-
-  if (subject.length < 8){
-    messages.push('Message is to short, atleast 8 characters long')
-  }
-
-  if(messages.length >0) {
-    alert ('Please fix the followining errors:\n\n' + messages.join ('\n'));
-    return;
-  }
-
-  processEnquiry(firstName, enquriyType, subject);
+}
 });
+}
+document.addEventListener('DOMContentLoaded', loadImages);
+
+// Enquiry Form
+
+$('#enquiryForm').submit(function(event){
+    event.preventDefault();
+    
+    var firstName = $("#fname").val();
+    var lastName = $("#lname").val();
+    var email = $("#email").val();
+    var phone = $("#phone").val();
+    var enquiryType = $("#enquiryType").val();
+    var message = $("#subject").val();
+    var submit = $("#enquiryForm input[type=submit]").val();
+
+    $("#fname, #lname, #email, #phone, #subject").removeClass("input-error");
+
+    var error = false;
+    if(firstName == "") { $("#fname").addClass("input-error"); error = true; }
+    if(email == "") { $("#email").addClass("input-error"); error = true; }
+    if(message == "") { $("#subject").addClass("input-error"); error = true; }
+
+    $(".form-message").load("mail.php", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        enquiryType: enquiryType,
+        message: message,
+        submit: submit
+    });
 });
 
-function processEnquiry(firstName, enquiryType, message) {
-  let response = generateEnquiryResponse(enquiryType);
 
-  displayEnquiryResponse(firstName, enquiryType, response);
-}
+// Contact Form
+$('#contact-form').submit(function(event) {
+    event.preventDefault();
+    
+    var nameContact = $('#name-contact').val();
+    var emailContact = $('#email-contact').val();
+    var messageContact = $('#message-contact').val();
+    var submit = "submit";
 
+    $("#name-contact, #email-contact, #message-contact").removeClass("input-error");
 
-function generateEnquiryResponse(type){
-  
-  if (type === 'custom-cake'){
-    alert('Custom Cake Orders: \nCost: R400 - R900\nAvailable in 5-7 working days \nFree delivery anything over R500');
-  }
-  if (type === 'product'){
-    alert('');
-  }
-
-  if (type === 'delivery-service'){
-    alert('');
-  }
-
-  if (type === 'pricing'){
-    alert('');
-  }
-}
-
-function displayEnquiryResponse(name, type){
-  alert('Thank you' + name + 'We have received your order! \nEnjoy the rest of your day!!');
-  generateEnquiryResponse(type);
-  }
-
-
+    $(".form-message").load("contact.php", {
+        nameContact: nameContact,
+        emailContact: emailContact,
+        messageContact: messageContact,
+        submit: submit
+    });
+});
